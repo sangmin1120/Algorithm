@@ -1,37 +1,32 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
-#define MAX 101
-#define INF 100001
+#include <algorithm>
 using namespace std;
 
-int n,capacity;
-int w[MAX]; // weight
-int p[MAX]; // profit
-vector<vector<int>> res;
+int n,capacity; // 물품의 수, 배낭 무게
+int weight[101];
+int value[101];
+int dp[101][100001];
 
-void solve(){
-    res[0].resize(capacity+1);
+void solution(){
+
     for (int i=1;i<=n;i++){
-        res[i].resize(capacity+1);
         for (int j=1;j<=capacity;j++){
-            if (j>=w[i])
-                res[i][j] = max(res[i-1][j],res[i-1][j-w[i]]+p[i]);
-
-            res[i][j] = max(res[i][j],res[i-1][j]);
+            if (j >= weight[i]){
+                dp[i][j] = max(dp[i-1][j-weight[i]]+value[i],dp[i-1][j]);
+            }
+            dp[i][j] = max(dp[i][j],dp[i-1][j]);
         }
     }
+    
+    cout << dp[n][capacity];
 }
 int main(){
+    // input & init
     cin >> n >> capacity;
-    res.resize(n+1);
+    for (int i=1;i<=n;i++)   cin >> weight[i] >> value[i];
 
-    for (int i=1;i<=n;i++){
-        cin >> w[i] >> p[i];
-    }
+    solution();
 
-    solve();
-
-    cout << res[n][capacity] << endl;
     return 0;
 }
