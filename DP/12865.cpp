@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-int n,capacity; // ¹°Ç°ÀÇ ¼ö, ¹è³¶ ¹«°Ô
+int n,capacity; // ê°€ë°© ìˆ˜, ê°€ë°©ì˜ ìš©ëŸ‰
 int weight[101];
 int value[101];
 int dp[101][100001];
