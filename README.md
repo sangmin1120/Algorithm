@@ -2,7 +2,7 @@
 백준 알고리즘 연습
 ## 자료구조, STL
 <ol>
-  1. 정렬에 사용되는 비교함수.
+  1. 정렬에 사용되는 <stronger>비교함수.</stronger>
   
   - sort(a,a+n,cmp) 이런 식으로 사용된다.
   - cmp 함수를 보면 <strong>bool cmp(int a,int b)</strong>  ==> <strong>a가 b 앞에 와야하면 True, 아니면 False</strong>
@@ -11,7 +11,7 @@
 
 ## 알고리즘
 <ol>
-  1. Dinamic Programming
+  1. <strong>Dinamic Programming</strong>
 
   - 해결법
   <ol>
