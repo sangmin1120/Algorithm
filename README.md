@@ -9,6 +9,7 @@
   - 비교함수는 우선순위 큐와 정렬에서 특정 비교가 있을 때 많이 사용된다.
 </ol>
 
+
 ## 알고리즘
 <ol>
   1. <strong>Dinamic Programming</strong>
