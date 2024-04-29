@@ -12,7 +12,7 @@
 
 ## 알고리즘
 <ol>
-  1. <strong>Dinamic Programming</strong>
+  1. <strong>Dynamic Programming</strong>
 
   - 해결법
   <ol>
