@@ -9,12 +9,13 @@
 
 
 ## 알고리즘
-<ol>
   1. <strong>Dynamic Programming</strong>
 
   - 해결법
     1. 함수 이름 정의하기
-    2. <strong>점화식 찾기<strong> , 초깃값 설정
+    2. 점화식 찾기 , 초깃값 설정
     3. 메모이제이션
   - <strong>이미 계산한 값을 배열, 변수에 저장하고 다음에 계산해야 할 때 값을 찾아 쓴다.</strong>
-</ol>
+
+  2. Graph
+  
