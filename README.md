@@ -1,6 +1,6 @@
 # Backjoon_algorithm
 백준 알고리즘 연습
-## 자료구조, STL
+## 자료구조, STL , 다시 볼만한 함수 사용법
   1. 정렬에 사용되는 <stronger>비교함수.</stronger>
   
   - sort(a,a+n,cmp) 이런 식으로 사용된다.
