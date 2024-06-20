@@ -1,0 +1,1 @@
+{"name":"Local: 3273","url":"c:\\Users\\sangm\\Desktop\\project\\algorithm(git)\\단기간 성장(문제집)\\3273.cpp","tests":[{"id":1718911549271,"input":"7\n1\n5\n2\n10\n-99\n7\n5","output":"1\n1\n2\n2\n2\n2\n5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\sangm\\Desktop\\project\\algorithm(git)\\단기간 성장(문제집)\\3273.cpp","group":"local","local":true}
