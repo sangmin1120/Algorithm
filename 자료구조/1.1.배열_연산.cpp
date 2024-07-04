@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-// ÀÎµ¦½º¸¦ ¹İÈ¯ÇÑ´Ù.
+// ì¸ë±ìŠ¤ë¥¼ ë°˜í™˜í•œë‹¤.
 
-// °Ë»ö (linear_search , binary_search) 
-// 1. ¼±Çü Å½»ö
+// ê²€ìƒ‰ (linear_search , binary_search) 
+// 1. ì„ í˜• íƒìƒ‰
 int linear_search(int *arr , int count , int key){
-    // °Ë»ö
+    // ê²€ìƒ‰
     for (int i=0;i<count;i++)
         if (arr[i] == key)
             return i;
     
-    // ¸ø Ã£À½
+    // ëª» ì°¾ìŒ
     return -1;
 }
-// 2. ÀÌÁø Å½»ö : Á¤·ÄµÈ ¹è¿­¿¡¼­¸¸ »ç¿ë °¡´É
+// 2. ì´ì§„ íƒìƒ‰ : ì •ë ¬ëœ ë°°ì—´ì—ì„œë§Œ ì‚¬ìš© ê°€ëŠ¥
 int binary_search(int *arr, int count, int key) {
     int s = 0;
     int e = count - 1;
@@ -29,39 +29,39 @@ int binary_search(int *arr, int count, int key) {
             e = mid - 1;
     }
 
-    // ¸ø Ã£À½
+    // ëª» ì°¾ìŒ
     return -1;
 }
 
-// Ãß°¡
+// ì¶”ê°€
 void list_insert(int *arr , int count , int key){
-    // ÀûÀıÇÑ À§Ä¡ Ã£±â
+    // ì ì ˆí•œ ìœ„ì¹˜ ì°¾ê¸°
     int i;
     for (i=0;i<count;i++){
-        // ÀûÀıÇÑ À§Ä¡ Ã£±â
+        // ì ì ˆí•œ ìœ„ì¹˜ ì°¾ê¸°
         if (arr[i] > key)
             break;
     }
 
-    // ºó °ø°£ È®º¸
+    // ë¹ˆ ê³µê°„ í™•ë³´
     for (int j=count-1;j>=i;j--)
         arr[j+1] = arr[j];
     
     arr[i] = key;
     count++;
 }
-// »èÁ¦
+// ì‚­ì œ
 void list_delete(int *arr , int count , int key){
-    // ¿ø¼Ò Ã£±â
+    // ì›ì†Œ ì°¾ê¸°
     int i;
     for (i=0;i<count;i++)
         if (arr[i] == key)
             break;
     
-    // ¿¹¿Ü
+    // ì˜ˆì™¸
     if (i==count)   return;
 
-    // µ¤¾î¾²±â
+    // ë®ì–´ì“°ê¸°
     for (int j=i;j<count-1;j++)
         arr[j] = arr[j+1];
     count--;
