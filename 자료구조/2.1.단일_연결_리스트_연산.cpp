@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// ´ÜÀÏ ¿¬°á ¸®½ºÆ®
+// ë‹¨ì¼ ì—°ê²° ë¦¬ìŠ¤íŠ¸
 class node{
     private:
         int item;
@@ -12,7 +12,7 @@ class node{
         void insert(int item);
         void remove(int item);
 };
-// 1. °Ë»ö
+// 1. ê²€ìƒ‰
 node* node::search(int item){
     node *curr = this;
 
@@ -22,38 +22,38 @@ node* node::search(int item){
     }
     return NULL;
 }   
-// 2. Ãß°¡
+// 2. ì¶”ê°€
 void node::insert(int item){
     node *curr = this;
 
-    // 1. ÀûÀýÇÑ À§Ä¡ Ã£±â
+    // 1. ì ì ˆí•œ ìœ„ì¹˜ ì°¾ê¸°
     while (curr->link != NULL){
         if (curr->item > item)
             break;
     }
 
-    // 2. »õ·Î¿î ³ëµå »ý¼º
+    // 2. ìƒˆë¡œìš´ ë…¸ë“œ ìƒì„±
     node *nnode;
     nnode->item = item;
     
-    // 3. link °»½Å
+    // 3. link ê°±ì‹ 
     nnode->link = curr->link;
     curr->link = nnode;
 }
-// 3. Á¦°Å
+// 3. ì œê±°
 void node::remove(int item){
     node *curr = this;
 
-    // 1. ¿ø¼Ò Ã£±â
+    // 1. ì›ì†Œ ì°¾ê¸°
     while(curr->link != NULL){
         if(curr->item == item)
             break;
     }
     
-    // 2. »èÁ¦ ³ëµå
+    // 2. ì‚­ì œ ë…¸ë“œ
     node *dnode = curr->link;
     
-    // 3. link °»½Å
+    // 3. link ê°±ì‹ 
     curr->link = dnode->link;
 
     // 4. free
