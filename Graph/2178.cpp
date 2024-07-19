@@ -6,7 +6,7 @@ using namespace std;
   
 #define X first
 #define Y second
-
+  
 string board[102];
 int dist[102][102];
 
