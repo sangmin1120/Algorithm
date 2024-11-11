@@ -1,6 +1,6 @@
 /*
-	[PGS]¿Ë¾ËÀÌ(1).cpp
-	"aya","ye","woo",ma"
+	[PGS]ì˜¹ì•Œì´(1).cpp => ë¬¸ìì—´ ë‹¤ë£¨ê¸°
+	ex) ["aya","ye","woo",ma"] 1
 */
 #include <iostream>
 #include <vector>
@@ -11,20 +11,20 @@ using namespace std;
 vector<string> words;
 
 void input();
-void solution(vector<string> babbling);
+int solution(vector<string> babbling);
 
 void input() {
 	string input;
 	getline(cin, input);
 
-	// '[',']' °ıÈ£ Á¦°Å
+	// '[',']' ê´„í˜¸ ì œê±°
 	input.erase(input.begin());
 	input.pop_back();
 
 	stringstream ss(input);
 	string word;
 
-	// white label Á¦°Å
+	// white label ì œê±°
 	while (getline(ss, word, ',')) {
 		word.erase(remove(word.begin(),word.end(),'"'), word.end());
 		word.erase(remove(word.begin(), word.end(), ' '), word.end());
@@ -32,17 +32,36 @@ void input() {
 	}
 
 	// debug
-	for (const auto& w : words) {
-		cout << w << '\n';
-	}
+	//for (const auto& w : words) {
+	//	cout << w << '\n';
+	//}
 }
-void solution(vector<string> inputs) {
+int solution(vector<string> inputs) {
+	int ans = 0;
 
+	// 1. inputs
+	for (auto& input : inputs) {
+		bool check = false;
+
+		for (int j = 0; j < input.size(); j++) {
+			if (input.substr(j, 3) == "aya") j += 2;
+			else if (input.substr(j, 2) == "ye") j += 1;
+			else if (input.substr(j, 3) == "woo") j += 2;
+			else if (input.substr(j, 2) == "ma") j += 1;
+			else {
+				check = true;
+				break;
+			}
+		}
+		if (!check) ans++;
+	}
+
+	return ans;
 }
 int main() {
 	input();
 
-	// solution(words);
+	cout << solution(words) << endl;
 
 	return 0;
 }
