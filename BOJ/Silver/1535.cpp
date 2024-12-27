@@ -1,3 +1,6 @@
+/*
+    안녕
+*/
 #include <iostream>
 #include <string.h>
 #include <algorithm>
