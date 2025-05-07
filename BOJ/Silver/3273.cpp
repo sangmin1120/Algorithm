@@ -1,7 +1,12 @@
+/**
+ * ë‘ ìˆ˜ì˜ í•©: ai+aj=x ë¥¼ ë§Œì¡±í•˜ëŠ” ìŒì˜ ìˆ˜
+ * íˆ¬í¬ì¸í„°í„°
+ */
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #define MAX 100001
+
 using namespace std;
 
 int n;
@@ -10,12 +15,12 @@ int target;
 int res = 0;
 
 void solution(){
-    // Á¤·Ä
+    // ì •ë ¬
     sort(arr,arr+n);
 
     int s = 0;
     int e = n-1;
-    // targetÀ» ±âÁØÀ¸·Î s , e¸¦ Á¶ÀıÇÑ´Ù. (Two pointer)
+    // (Two pointer)
     while (s<e){
         int sum = arr[s] + arr[e];
         if (sum < target)
