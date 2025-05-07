@@ -1,3 +1,7 @@
+/**
+ * 피보나치 수 6: n 번째 피보나치 수 - n<=10^^18
+ * D&Q
+ */
 #include <iostream>
 #include <map>
 using namespace std;
@@ -18,14 +22,12 @@ long long fib(long long k){
 
     if (f.count(k)>0)   return f[k];
 
-    // ¦��
     if (k%2==0){
         long long m = k/2;
         long long temp1 = fib(m);
         long long temp2 = fib(m-1);
         f[k] = (temp1 * (2*temp2+temp1))%MOD;
     }
-    // Ȧ��
     else{
         long long m = (k+1)/2;
         long long temp1 = fib(m);
