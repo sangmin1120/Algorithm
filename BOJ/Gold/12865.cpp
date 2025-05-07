@@ -1,3 +1,7 @@
+/**
+ * 평범한 배낭: knapsack 문제
+ * DP
+ */
 #include <iostream>
 #include <vector>
 #include <algorithm>
