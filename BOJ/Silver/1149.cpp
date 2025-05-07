@@ -1,3 +1,7 @@
+/**
+ * RGB 거리: 색깔 규칙을 만족하면서 비요으이 최솟값
+ * DP
+ */
 #include <iostream>
 #include <vector>
 #include <algorithm>
