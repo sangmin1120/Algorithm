@@ -1,5 +1,6 @@
-/*
-    안녕
+/**
+*  안녕: 인사하면서 체력을 잃고, 기쁨을 얻는다.
+*  DP
 */
 #include <iostream>
 #include <string.h>
