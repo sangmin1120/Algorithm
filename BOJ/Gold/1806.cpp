@@ -1,6 +1,11 @@
+/**
+ * 부분합: 연속된 수들의 부분합 중 그 합이 S이상이 되는 것 중, 가장 짧은 것
+ * 구현
+ */
 #include <iostream>
 #include <algorithm>
 #define INF 0x7fffffff
+
 using namespace std;
 
 int n,s;
