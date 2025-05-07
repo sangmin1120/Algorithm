@@ -1,6 +1,11 @@
+/**
+ * 구간 합 구하기 5: 2쌍의 좌표 안에서 합을 구하기
+ * DP
+ */
 #include <iostream>
 #define MAX 1206
 using namespace std;
+
 int x1,x2,y1,y2;
 int n;
 int cnt;
