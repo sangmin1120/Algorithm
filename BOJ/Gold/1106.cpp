@@ -1,7 +1,12 @@
+/**
+ * 호텔: 홍보와 비용, 고객에 대한 투자비용 최솟값
+ * DP
+ */
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string.h>
+
 using namespace std;
 #define INF 1001
 
