@@ -1,3 +1,7 @@
+/**
+ * 내리막 길: 낮은 지점 (0,0)->(n-1,n-1) 이동 경로의 갯수
+ * DFS + DP
+ */
 #include <iostream>
 #include <vector>
 #include <cstring>
