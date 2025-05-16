@@ -1,3 +1,7 @@
+/**
+ * 숨바꼭질: x-1 or x+1 or 2*x 로 순간 이동해서 k로 가는 최소 시간
+ * BFS
+ */
 #include <iostream>
 #include <queue>
 #define MAX 100001
