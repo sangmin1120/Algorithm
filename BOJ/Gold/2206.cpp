@@ -20,35 +20,45 @@ int ans = INT_MAX;
 bool InRange(int x,int y) {
     return x>=0&&x<r&&y>=0&&y<c;
 }
-void bfs() {
+int bfs() {
 
-    queue<pair<int,int>> q;
-    q.push({0,0});
-    visited[0][0] = 1;
+    int dist[r][c][2];
+    for (int i=0;i<r;i++)
+        for (int j=0;j<c;j++)
+            dist[i][j][0] = dist[i][j][1] = -1;
 
-    while(!q.empty()) {
-        auto cur = q.front(); q.pop();
+    dist[0][0][0] = dist[0][0][1] = 1;
+
+
+    queue<tuple<int,int,int>> q;
+    q.push({0,0,0});
+
+    while (!q.empty()) {
+        int cx,cy,broken;
+        tie(cx,cy,broken) = q.front(); q.pop();
+
+        if (cx==r-1 && cy==c-1) return dist[cx][cy][broken];
+        int nextdist = dist[cx][cy][broken] + 1;
 
         for (int d=0;d<4;d++) {
-            int nx = cur.X + direct[d][0];
-            int ny = cur.Y + direct[d][1];
+            int nx = cx + direct[d][0];
+            int ny = cy + direct[d][1];
 
-            if (nx==r-1&&ny==c-1) {
-                ans = min(ans,visited[cur.X][cur.Y]+1);
+            if (!InRange(nx,ny))    continue;
+
+            if (boards[nx][ny]==0 && dist[nx][ny][broken]==-1) {
+                dist[nx][ny][broken] = nextdist;
+                q.push({nx,ny,broken});
             }
-            if (!InRange(nx,ny) || visited[nx][ny] || boards[nx][ny]==1)    continue;
 
-            q.push({nx,ny});
-            visited[nx][ny] = visited[cur.X][cur.Y] + 1;
+            // 벽은 부술 때
+            if (!broken && boards[nx][ny]==1 && dist[nx][ny][broken]==-1) {
+                dist[nx][ny][1] = nextdist;
+                q.push({nx,ny,1});
+            }
         }
     }
-
-    for (int i=0;i<r;i++) {
-        for (int j=0;j<c;j++) {
-            cout << visited[i][j] << ' ';
-        }
-        cout << '\n';
-    }
+    return -1;
 }
 void solution() {
     // init
@@ -63,15 +73,10 @@ void solution() {
         }
     }
 
-    for (auto w : walls) {
-        boards[w.X][w.Y] = 0; // 벽 부수기
-        fill(&visited[0][0],&visited[1001][0],0);
-        bfs();
-        boards[w.X][w.Y] = 1; // 복구
-    }
-    
-    //출력
-    cout << (ans==INT_MAX)?-1:ans << '\n';
+    //solution
+    int ans = bfs();
+
+    cout << ans << '\n';
 }
 int main() {
     ios::sync_with_stdio(0);
