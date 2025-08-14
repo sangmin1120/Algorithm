@@ -8,42 +8,55 @@ using namespace std;
 int direct[4][2] = {{0,1},{0,-1},{1,0},{-1,0}}; // 동,서,남,북
 
 char boards[5][5];
-int visited[5][5];
 int n = 5; // 5 X 5
 int res = 0;
 
 bool InRange(int x, int y) {
     return x>=0 && x<n && y>=0 && y<n;
 }
-void bt(int x, int y, int count, int S_count) {
-    // exit cond
-    if (count==7) {
-        if (S_count>=4) {
-            res++;
+bool checkAdj(vector<int> &picked) {
+    queue<pair<int,int>> q;
+    bool vis[n][n] = {};
+    bool sel[n][n] = {};
+
+    for (auto idx : picked) sel[idx/n][idx%n] = true;
+
+    q.push({picked[0]/n,picked[0]%n});
+    vis[picked[0]/5][picked[0]%5] = true;
+    int cnt = 1;
+
+    while (!q.empty()) {
+        auto [x,y] = q.front(); q.pop();
+
+        for (int d=0;d<4;d++) {
+            int nx = x+direct[d][0];
+            int ny = y+direct[d][1];
+            if (InRange(nx,ny) && sel[nx][ny] && !vis[nx][ny]) {
+                vis[nx][ny] = true;
+                q.push({nx,ny});
+                cnt++;
+            }
         }
-        return;
     }
-
-    //logic
-    for (int i=0;i<4;i++) {
-        int nx = x + direct[i][0];
-        int ny = y + direct[i][1];
-
-        if (!InRange(nx,ny))    continue;
-
-        if (!visited[nx][ny]) {
-            visited[nx][ny] = 1;
-            if (boards[nx][ny]=='S')
-                bt(nx,ny,count+1,S_count+1);
-            else
-                bt(nx,ny,count+1,S_count);
-            visited[nx][ny] = 0;
-        }
-    }
+    return cnt == 7;
 }
 void solution() {
 
-    bt(0,0,0,0);
+    vector<int> v(25,0);
+    fill(v.end()-7,v.end(),1); // bit mask -> 7명
+
+    do {
+
+        vector<int> picked;
+        int s_cnt = 0;
+        for (int i=0;i<n*n;i++) {
+            if (v[i]) { // 앉아있음
+                picked.push_back(i);
+                if (boards[i/n][i%n]=='S')  s_cnt++;
+            }
+        }
+        if (s_cnt>=4 && checkAdj(picked))   res++;
+    } while(next_permutation(v.begin(),v.end())); // 비트 마스크 순열로 인접과 조건을 판단
 
     cout << res << endl;
 }
@@ -56,10 +69,7 @@ int main() {
         string temp;
         cin >> temp;
         for (int j=0;j<n;j++) {
-            if (temp[j]=='S')
-                boards[i][j] = 'S';
-            else
-                boards[i][j] = 'Y';
+            boards[i][j] = temp[j];
         }
     }
 
