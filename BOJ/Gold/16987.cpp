@@ -1,5 +1,5 @@
 /**
- * 계란으로 계란치기
+ * 계란으로 계란치기 : O(n2) - 이중 for문?
  * BACKTRAKING
  */
 #include <bits/stdc++.h>
