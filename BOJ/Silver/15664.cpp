@@ -1,6 +1,6 @@
 /**
  * N과 M (10) - 중복되는 순열 없이
- * BACKTRAKING
+ * BACKTRAKING (S2)
  */
 #include <bits/stdc++.h>
 using namespace std;
